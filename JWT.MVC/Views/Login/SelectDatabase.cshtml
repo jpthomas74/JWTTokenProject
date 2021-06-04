@@ -1,0 +1,36 @@
+﻿@model IEnumerable<JWT.MVC.Models.AccessibleDb>
+
+
+<h1>Select Database</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Database)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConnectionString)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+         
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Database)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ConnectionString)
+                    </td>
+                    <td>
+                        <a asp-action="PostLogin" asp-route-db="@item.Database" asp-route-user="@item.UserName">Select</a>
+                    </td>
+                </tr>
+           
+        }
+    </tbody>
+</table>
